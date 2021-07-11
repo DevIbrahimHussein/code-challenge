@@ -4,6 +4,7 @@
   "description": "Eurisko Mobility Node Js Task",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ibrahim Hussein",
