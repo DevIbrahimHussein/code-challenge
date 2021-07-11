@@ -6,11 +6,15 @@ module.exports = {
         return new model(menu)
     },
 
+    saveMenu(menu){
+        return menu.save()
+    },
+
     allMenu(){
         return model.find()
     },
 
-    deleteMenyById(menuId){
+    deleteMenuById(menuId){
         return model.findByIdAndDelete(menuId)
     },
 

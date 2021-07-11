@@ -2,8 +2,12 @@ const model = require('../models/address.model')
 
 module.exports = {
 
-    createAddressService(address){
+    createAddressModel(address){
         return new model(address)
+    },
+
+    saveAddress(address){
+        return address.save()
     },
 
     allAddresses(){

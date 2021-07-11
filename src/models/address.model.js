@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 
 const addressSchema = mongoose.Schema({
-
     label: {
         type: String,
         require: true
@@ -18,7 +17,6 @@ const addressSchema = mongoose.Schema({
         type: String,
         require: true
     }
-    
 }, {
     versionKey: false
 })

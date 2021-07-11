@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
 const Address = require('./address.model')
+const item = require('./item.model')
+
 const restaurantSchema = new mongoose.Schema({
 
     name: {
@@ -7,9 +9,14 @@ const restaurantSchema = new mongoose.Schema({
         require: true
     },
 
-    coordinates: {
+    address: {
         type: mongoose.Schema.ObjectId,
         ref: Address
+    },
+
+    menu: {
+        type: mongoose.Schema.ObjectId,
+        ref: item
     }
 
 })

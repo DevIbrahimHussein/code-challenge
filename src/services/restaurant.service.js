@@ -3,7 +3,11 @@ const model = require('../models/restaurant.model')
 module.exports = {
 
     createRestaurantModel(restaurant){
-        return new model(restuarant)
+        return new model(restaurant)
+    },
+
+    saveRestaurant(restaurant){
+        return restaurant.save()
     },
 
     allRestaurant(){
