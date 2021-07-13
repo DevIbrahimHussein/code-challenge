@@ -9,7 +9,7 @@ const restaurantSchema = new mongoose.Schema({
         require: true
     },
 
-    address: {
+    location: {
         type: mongoose.Schema.ObjectId,
         ref: Address
     },

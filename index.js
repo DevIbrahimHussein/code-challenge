@@ -11,11 +11,11 @@ require('dotenv').config()
 const apis = require('./src/routes/route.js')
 
 // load database
-// const databaseConnection = require('./src/config/database.config')
+const databaseConnection = require('./src/config/database.config')
 
 // ===========================================================================================================
 
-// databaseConnection()
+databaseConnection()
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))    

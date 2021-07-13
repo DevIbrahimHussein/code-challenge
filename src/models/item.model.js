@@ -5,11 +5,6 @@ const itemSchema = mongoose.Schema({
 
     name: {
         type: String
-    },
-
-    category: {
-        type: mongoose.Schema.ObjectId,
-        ref: category
     }
     
 }, {

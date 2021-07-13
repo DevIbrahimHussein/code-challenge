@@ -6,6 +6,10 @@ module.exports = {
         return new model(order)
     },
 
+    saveOrder(order){
+        return order.save()
+    },
+
     allOrders(){
         return model.find()
     },

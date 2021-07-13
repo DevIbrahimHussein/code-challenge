@@ -2,7 +2,7 @@ const { allRestaurant, createRestaurantModel, saveRestaurant, updateRestaurantBy
 
 exports.listRestaurants = async(req, res, next) => {
 
-    req.data = allRestaurant()
+    req.data = await allRestaurant()
     next()
 
 }

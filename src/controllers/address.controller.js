@@ -1,24 +1,23 @@
-const { saveAddress, createAddressModel, updateAddressById, deleteAddressById } = require('../services/address.service')
-const service = require('../services/address.service')
+const { saveAddress, createAddressModel, updateAddressById, deleteAddressById, allAddresses } = require('../services/address.service')
 
 exports.getAddresses = async(req, res, next) => {
 
-    req.data = service.allAddresses()
+    req.data = await allAddresses()
     next()
 
 }
 
 exports.addAddress = async(req, res, next) => {
 
-    model = createAddressModel(req.body)
-    req.data = saveAddress(model)
+    model = await createAddressModel(req.body)
+    req.data = await saveAddress(model)
     next()
 
 }
 
 exports.updateAddress = async(req, res, next) => {
 
-    req.data = updateAddressById(req.params.addressId)
+    req.data = await updateAddressById(req.params.addressId, req.body)
     next()
 
 }
@@ -26,7 +25,7 @@ exports.updateAddress = async(req, res, next) => {
 
 exports.removeAddress = async(req, res, next) => {
 
-    req.data = deleteAddressById(req.params.addressId)
+    req.data = await deleteAddressById(req.params.addressId)
     next()
     
 }

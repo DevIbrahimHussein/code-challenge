@@ -2,8 +2,12 @@ const model = require('../models/category.model')
 
 module.exports = {
 
-    createCategoryModel(address){
-        return new model(address)
+    createCategoryModel(category){
+        return new model(category)
+    },
+
+    insertCategory(category){
+        return category.save()
     },
 
     allCategories(){

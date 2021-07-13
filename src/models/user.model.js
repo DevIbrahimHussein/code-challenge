@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 
 const UserSchema = mongoose.Schema({
+
     fullName: {
         type: String,
         require: true
@@ -30,6 +31,7 @@ const UserSchema = mongoose.Schema({
     updatedAt: {
         type: Date
     }
+    
 }, {
     versionKey: false
 })
