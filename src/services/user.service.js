@@ -10,10 +10,6 @@ module.exports = {
         return user.save()
     },
 
-    isUserExists(email) {
-        return User.findOne({ email: email })
-    },
-
     signin(user) {
         return this.signToken(user)
     },
@@ -58,6 +54,12 @@ module.exports = {
         }
         const decoded = jwt.verify(token, process.env.JwtSECRET)
         return decoded
+    },
+
+    async isAdmin(userId){
+        const user = await User.findbyId(userId)
+        if(user.role == 'admin') return true
+        return false
     },
 
     allUsers(filter) {
@@ -174,44 +176,6 @@ module.exports = {
     isAuth(auth) {
         const isAuth = !auth ? false : true
         return isAuth
-    },
-
-    getCurrentDate(){
-        return Date.now()
-    },
-
-    extractQueryParameters(query, params){
-
-        const searchName = query.name
-        const field = query.sortBy
-        const criteria = query.criteria
-
-        var filter= {}
-        var sort = {}
-        
-        if(minPrice && maxPrice){
-            filter.price = { $gte: minPrice , $lte: maxPrice }
-        }
-        if(minDiscount && maxDiscount){
-            filter.discount = { $gte: minDiscount, $lte: maxDiscount }
-        }
-        if(searchName){
-            filter.name = { $regex: searchName, $options: "i" }
-        }   
-        if(field && !criteria){
-            sort[field] = 'asc'
-        } 
-        if(field && criteria){
-            sort[field] = criteria
-        } 
-        if(!field){
-            sort['createdAt'] = 'asc'
-        }
-        return { 
-            filter,
-            sort
-        }
-        
     }
 
 }

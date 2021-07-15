@@ -10,15 +10,22 @@ module.exports = {
         return item.save()
     },
 
-    getItems(){
-        return model.find()
+    getItems(filter, skip, limit){
+        return model
+                .find(filter)
+                .skip(skip)
+                .limit(limit)
+                .populate({
+                    path: 'category',
+                    model: 'Category'
+                })
     },
 
-    updateItem(itemId, item){
+    updateItemById(itemId, item){
         return model.findByIdAndUpdate(itemId, item)
     },
 
-    removeItem(itemId){
+    removeItemById(itemId){
         return model.findByIdAndDelete(itemId)
     }
     

@@ -17,11 +17,10 @@ exports.addCategory = async(req, res, next) => {
 
 exports.updateCategory = async(req, res, next) => {
 
-    req.data = await updateCategoryById(req.params.categoryId)
+    req.data = await updateCategoryById(req.params.categoryId, req.body)
     next()
 
 }
-
 
 exports.removeCategory = async(req, res, next) => {
 
