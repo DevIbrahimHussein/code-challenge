@@ -28,9 +28,14 @@ exports.login = async (req, res, next) => {
 
 exports.updateUser = async(req, res, next) => {
 
-    if(req.body.email)
-        res.status(403).json({ 'msg': 'Email cannot be updated' })
+    if(req.body.email) res.status(403).json({ 'msg': 'You are not authorized to update Email' })
     
+    if(req.body.status) res.status(403).json({ 'msg': 'You are not authorized to update Status' })
+
+    if(req.body.role) res.status(403).json({ 'msg': 'You are not authorized to update Role' })
+
+    if(req.body.active) res.status(403).json({ 'msg': 'You are not authorized to update Active' })
+
     req.data = await updateUserById(req.params.userId)
     next()
 

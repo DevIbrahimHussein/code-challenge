@@ -19,7 +19,11 @@ router.post('/signup',
     middleware.dataHandler
 )
 
-router.post('/active')
+router.post('/active',
+    middleware.verifyToken,
+    middleware.verifyAdmin,
+    userController.setUserActivity
+)
 
 router.put('/update/:userId',
     middleware.verifyToken,
@@ -145,17 +149,26 @@ router.get('/orders',
 )
 
 router.post('/order',
+    middleware.verifyToken,
     orderController.createOrder,
     middleware.dataHandler
 )
 
 router.put('/order/:orderId',
+    middleware.verifyToken,
     orderController.updateOrder,
     middleware.dataHandler
 )
 
 router.get('/order/:orderId',
+    middleware.verifyToken,
     orderController.modifyStatus,
+    middleware.dataHandler
+)
+
+router.get('/cancel/:orderId',
+    middleware.verifyToken,
+    orderController.cancelOrder,
     middleware.dataHandler
 )
 

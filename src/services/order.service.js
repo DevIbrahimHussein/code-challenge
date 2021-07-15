@@ -14,6 +14,10 @@ module.exports = {
         return model.find()
     },
 
+    getOrderById(orderId){
+        return model.findById(orderId)
+    },
+
     deleteOrderById(orderId){
         return model.findByIdAndDelete(orderId)
     },
