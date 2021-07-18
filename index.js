@@ -14,10 +14,10 @@
   const databaseConnection = require('./src/config/database.config')
 
 // load logger
-  const logger = require('../src/middlewares/logger.middleware')
+  const logger = require('./src/middlewares/logger.middleware')
 
 // load trimRequest
-  const trimRequest = require('../src/middlewares/trim-request.middleware')
+  const trimRequest = require('./src/middlewares/trim-request.middleware')
 
 
 // ===========================================================================================================
