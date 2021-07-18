@@ -17,7 +17,7 @@ exports.createOrder = async(req, res, next) => {
 
 exports.updateOrder = async(req, res, next) => {
 
-    req.data = await updateOrderById(req.params.orderId)
+    req.data = await updateOrderById(req.params.orderId, req.body.items)
     next()
 
 }
