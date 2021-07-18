@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Item = require('./item.model')
 
-const itemSchema = mongoose.Schema({
+const orderSchema = mongoose.Schema({
 
     items: [
         {
@@ -21,4 +21,4 @@ const itemSchema = mongoose.Schema({
     versionKey: false
 })
 
-module.exports = mongoose.model('Item', itemSchema)
+module.exports = mongoose.model('Order', orderSchema)
